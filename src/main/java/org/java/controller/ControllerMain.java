@@ -20,7 +20,9 @@ public class ControllerMain {
 	public String getIndex(Model model) {
 		
 		List<Pizza> arrayPizze = pizzaService.findAll();
+		int countPizze = arrayPizze.size();
 		model.addAttribute("arrayPizze", arrayPizze);
+		model.addAttribute("countPizze", countPizze);
 		
 		return "index";
 	}

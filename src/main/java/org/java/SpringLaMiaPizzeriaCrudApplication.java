@@ -23,8 +23,12 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner {
 		
 			
 		Pizza p1 = new Pizza("margherita", "La regina delle pizze", "http...", 5.50f);
+		Pizza p2 = new Pizza("diavola", "La piccantissima", "http...", 6.50f);
+		Pizza p3 = new Pizza("ananas", "L'insulto", "http...", 0.50f);
 			
 		pizzaService.save(p1);
+		pizzaService.save(p2);
+		pizzaService.save(p3);
 			
 		System.out.println("Salvataggio dell'elemento andato a buon fine");
 			

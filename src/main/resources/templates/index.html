@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <!-- bootstrap-->
@@ -7,8 +7,40 @@
 <title>Buongiorno Pizzeria!</title>
 </head>
 <body>
-	<h1>Hello Pizzeria</h1>
 	
+	<div class="container mb-3">	
+		<h1>Hello Pizzeria</h1>
+	</div>
+	
+	<div class="container">		
+	<div th:if="${countPizze == 0}" class="alert alert-warning" role="alert">
+  		Non sono presenti pizze nel DB.
+	</div>	
+
+	<table th:if="${countPizze > 0}" class="table">
+		<h2>Tot risultati: [[${countPizze}]]</h2>
+	  <thead>
+	    <tr>
+	      <th scope="col">id</th>
+	      <th scope="col">name</th>
+	      <th scope="col">description</th>
+	      <th scope="col">price</th>
+	      <th scope="col">Cta</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr th:each="pizza : ${arrayPizze}"]
+	    	th:object="${pizza}">
+	      <th scope="row">[[*{id}]]</th>
+	      <td>[[*{name}]]</td>
+	      <td>[[*{description}]]</td>
+	      <td>€ [[*{price}]]</td>
+	      <td><a class="btn btn-success" th:href="@{/pizza/{id}(id=${pizza.id})}">show</a></td>
+	    </tr>
+	  </tbody>
+	</table>
+	
+	</div>
 	<!-- Bootstrap Bundle with Popper -->
 <script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
 </body>
