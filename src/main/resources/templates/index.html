@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<!-- bootstrap-->
-<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"/>
-<!-- css -->
-<link th:rel="stylesheet" th:href="@{/css/header.css}" >
-
-<title>Buongiorno Pizzeria!</title>
-</head>
+<head th:insert="~{fragments/head :: head}"></head>
 <body>
 	
 	<header th:replace="fragments/fragHeader :: header "></header>
@@ -39,7 +31,7 @@
 	      <td>[[*{name}]]</td>
 	      <td>[[*{description}]]</td>
 	      <td>€ [[*{price}]]</td>
-	      <td><a class="btn btn-success" th:href="@{/{id}(id=${pizza.id})}">show</a></td>
+	      <td><a class="btn btn-success" th:href="@{pizza/{id}(id=${pizza.id})}">show</a></td>
 	    </tr>
 	  </tbody>
 	</table>

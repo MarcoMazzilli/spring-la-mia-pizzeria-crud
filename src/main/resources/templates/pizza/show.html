@@ -1,13 +1,6 @@
 <!DOCTYPE html>
-<html>
 <html xmlns:th="http://www.thymeleaf.org">
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<!-- css -->
-<link th:rel="stylesheet" th:href="@{/css/style.css}" >
-<link th:rel="stylesheet" th:href="@{/css/header.css}" >
-<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"/>
-</head>
+<head th:include="~{fragments/head :: head}"></head>
 <body>
 	
 	<header th:replace="fragments/fragHeader :: header "></header>
