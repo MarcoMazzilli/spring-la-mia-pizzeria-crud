@@ -28,7 +28,7 @@ public class ControllerMain {
 		return "index";
 	}
 	
-	@GetMapping("pizza/{id}")
+	@GetMapping("/{id}")
 	public String show(@PathVariable int id,Model model) {
 		
 		Pizza pizza = pizzaService.findById(id);
