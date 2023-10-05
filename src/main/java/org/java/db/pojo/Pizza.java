@@ -52,10 +52,14 @@ public class Pizza {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	public float getPrice() {
-		return price;
+	public String getPrice() {
+		
+		String formattedPrice = String.format("%.2f", price);
+		return formattedPrice;
 	}
 	public void setPrice(float price) {
+		
+		
 		this.price = price;
 	}
 	
