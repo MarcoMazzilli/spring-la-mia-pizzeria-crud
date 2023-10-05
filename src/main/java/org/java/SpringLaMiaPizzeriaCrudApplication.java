@@ -21,10 +21,12 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
+		String imgPizza = "https://pixabay.com/get/g5c0f9d6fdff69f0b80030019d2819e23f2d83b019525203bb065841928b05701d2c41c6e3901cbf50b371215c89f3c028380cc061a96cf117c2f80c0b28d17483d68c94addd276fea798e015f2b484db_640.jpg";
+		
 			
-		Pizza p1 = new Pizza("margherita", "La regina delle pizze", "http...", 5.50f);
-		Pizza p2 = new Pizza("diavola", "La piccantissima", "http...", 6.50f);
-		Pizza p3 = new Pizza("ananas", "L'insulto", "http...", 0.50f);
+		Pizza p1 = new Pizza("margherita", "La regina delle pizze", imgPizza, 5.50f);
+		Pizza p2 = new Pizza("diavola", "La piccantissima", imgPizza, 6.50f);
+		Pizza p3 = new Pizza("ananas", "L'insulto", imgPizza, 0.50f);
 			
 		pizzaService.save(p1);
 		pizzaService.save(p2);

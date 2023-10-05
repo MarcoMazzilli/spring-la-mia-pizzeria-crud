@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<!-- css -->
+<link th:rel="stylesheet" th:href="@{/css/style.css}" >
+<link th:rel="stylesheet" th:href="@{/css/header.css}" >
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"/>
 </head>
 <body>
 	
-	<h1>Show della pizza </h1>
-	<p>Nome della pizza: [[${pizza.name}]]</p>
+	<header th:replace="fragments/fragHeader :: header "></header>
+
+	<div class="container d-flex justify-content-center py-5">
+		
+			
+		<div class="p-2 shadow" style="width: 50%;">
+			
+		<h3 class="py-3">Nome della pizza: [[${pizza.name}]]</h3>
+			
+		  <img class="card-img-top mvm-img" th:src="@{${pizza.photo}}" alt="Card image cap">
+		  
+		  <div class="card-body">
+			  
+		    <h5 class="card-title">[[${pizza.name}]]</h5>
+		    <p class="card-text">[[${pizza.description}]]</p>
+		    <a href="/" class="btn btn-primary">Back to home</a>
+		    
+		  </div>
+		  
+		</div>
+		
+	</div>
 
 </body>
 </html>

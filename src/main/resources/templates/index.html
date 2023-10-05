@@ -4,12 +4,16 @@
 <meta charset="ISO-8859-1">
 <!-- bootstrap-->
 <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"/>
+<!-- css -->
+<link th:rel="stylesheet" th:href="@{/css/header.css}" >
+
 <title>Buongiorno Pizzeria!</title>
 </head>
 <body>
 	
+	<header th:replace="fragments/fragHeader :: header "></header>
+	
 	<div class="container mb-3">	
-		<h1>Hello Pizzeria</h1>
 	</div>
 	
 	<div class="container">		
