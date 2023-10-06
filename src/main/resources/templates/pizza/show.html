@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:include="~{fragments/head :: head}"></head>
+<head th:insert="~{fragments/head :: head}"></head>
 <body>
 	
-	<header th:replace="fragments/fragHeader :: header "></header>
+	<header th:replace="~{fragments/fragHeader :: header}"></header>
 
 	<div class="container d-flex justify-content-center py-5">
 		

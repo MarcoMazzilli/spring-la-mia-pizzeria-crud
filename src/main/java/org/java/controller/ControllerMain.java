@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -52,9 +53,21 @@ public class ControllerMain {
 	@GetMapping("pizza/create")
 	public String create(Model model) {
 		 
-		model.addAttribute("pizza" , new Pizza());
+		model.addAttribute("newPizza" , new Pizza());
 		
 		return "pizza/create";
+	}
+	
+	
+	@PostMapping("pizza/create")
+	public String store(
+			@ModelAttribute ("newPizza") Pizza pizza,
+			Model model){
+		
+		pizzaService.save(pizza);
+		System.out.println("New Pizza saved on db");
+		
+		return "redirect:/";
 	}
 
 }

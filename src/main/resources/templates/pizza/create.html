@@ -3,23 +3,24 @@
 <head th:insert="~{fragments/head :: head}"></head>
 <body>
 	
-	<header th:replace="fragments/fragHeader :: header "></header>
+	<header th:replace="~{fragments/fragHeader :: header}"></header>
 	<div class="container">
-		<form>
+			
+		<form method="post">
 			<row class="d-flex">				
 				<div class="col col-5 wrapper-from-left p-3">
 									
 				  <div class="mb-3">
 				    <label for="name" class="form-label">Nome della pizza</label>
-				    <input type="text" class="form-control" id="name" name="name" placeholder="Es. Margherita">
+				    <input type="text" class="form-control" id="name" name="name"  placeholder="Es. Margherita">
 				  </div>
 				  <div class="mb-3">
 				    <label for="price" class="form-label">Prezzo</label>
-				    <input type="text" class="form-control" id="price" name="price" placeholder="Es. 5.50">
+				    <input type="text" class="form-control" id="price" name="price"  placeholder="Es. 5.50">
 				  </div>
 				  <div class="mb-3">
-				    <label for="image" class="form-label">Url immagine</label>
-				    <input type="text" class="form-control" id="image" name="image" placeholder="Inserisci l'url di un immagine">
+				    <label for="photo" class="form-label">Url immagine</label>
+				    <input type="text" class="form-control" id="photo" name="photo"  placeholder="Inserisci l'url di un immagine">
 				  </div>
 				  
 				</div>
@@ -37,6 +38,7 @@
 		  <button type="submit" class="btn btn-primary">Crea pizza</button>
 		</form>
 	</div>
+
 	<!-- Bootstrap Bundle with Popper -->
 <script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
 </body>
