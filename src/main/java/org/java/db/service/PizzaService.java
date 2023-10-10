@@ -9,28 +9,28 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PizzaService {
-	
+
 	@Autowired
 	private PizzaRepo pizzaRepo;
-	
+
 	public void save(Pizza pizza) {
 		pizzaRepo.save(pizza);
 	}
-	
+
 	public List<Pizza> findAll(){
-		
+
 		List<Pizza> arrayPizze = pizzaRepo.findAll();
-		
+
 		return arrayPizze;
 	}
-	
+
 	public Pizza findById(int id) {
-		
+
 		return pizzaRepo.findById(id).get();
 	}
-	
+
 	public List<Pizza> findByName(String string){
-		
+
 		return pizzaRepo.findByNameContaining(string);
 	}
 

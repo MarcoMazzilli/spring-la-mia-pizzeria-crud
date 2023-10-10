@@ -12,10 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner {
-	
+
 	@Autowired
 	private PizzaService pizzaService;
-	
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringLaMiaPizzeriaCrudApplication.class, args);
@@ -23,10 +23,10 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+
 		String imgPizza = "https://images.pexels.com/photos/10790638/pexels-photo-10790638.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
-		
+
 		List<Pizza> arrayPizze = Arrays.asList(
 				new Pizza("margherita", "La regina delle pizze", imgPizza, 5.50f),
 				new Pizza("diavola", "La piccantissima", imgPizza, 6.50f),
@@ -38,12 +38,12 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner {
 				new Pizza("senza lattosio", "La piccantissima", imgPizza, 6.50f),
 				new Pizza("gourmet", "L'insulto gravissimo", imgPizza, 0.50f)
 				);
-		
+
 		arrayPizze.forEach(p -> pizzaService.save(p));
-				
-			
+
+
 		System.out.println("Salvataggio dell'elemento andato a buon fine");
-			
+
 	}
 
 }

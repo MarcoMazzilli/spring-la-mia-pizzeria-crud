@@ -38,7 +38,7 @@
 	      <th scope="row">[[*{id}]]</th>
 	      <td>[[*{name}]]</td>
 	      <td>[[*{description}]]</td>
-	      <td>€ [[*{price}]]</td>
+	      <td>€ [[*{getFormattedPrice}]]</td>
 	      <td><a class="btn btn-success" th:href="@{pizza/{id}(id=${pizza.id})}">show</a></td>
 	    </tr>
 	  </tbody>

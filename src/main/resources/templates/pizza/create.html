@@ -6,30 +6,61 @@
 	<header th:replace="~{fragments/fragHeader :: header}"></header>
 	<div class="container">
 			
-		<form method="post">
+		<form
+		th:object="${newPizza}" 
+		method="post">
 			<row class="d-flex">				
 				<div class="col col-5 wrapper-from-left p-3">
-									
+					<ul>
+						<li
+						th:each="err : ${#fields.allErrors()}"
+						th:text="${err}">
+						</li>
+					</ul>
+				  		
+				  <div th:if="${#fields.hasErrors('name')}">
+				  	<ul>
+				  	   <li class="text-danger" th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
+				  	</ul>
+				  </div>
+				  		
 				  <div class="mb-3">
 				    <label for="name" class="form-label">Nome della pizza</label>
-				    <input type="text" class="form-control" id="name" name="name"  placeholder="Es. Margherita">
+				    <input type="text" class="form-control" id="name" name="name" th:field="*{name}"  placeholder="Es. Margherita">
 				  </div>
+				  
+				  
+
+				  
 				  <div class="mb-3">
 				    <label for="price" class="form-label">Prezzo</label>
-				    <input type="text" class="form-control" id="price" name="price"  placeholder="Es. 5.50">
+				    <input type="number" value="0.5" min="0.5" max="99" step=".5" class="form-control" id="price" name="price" placeholder="Es. 5.50">
 				  </div>
+				  
+				  <div th:if="${#fields.hasErrors('photo')}">
+				  	<ul>
+				  	   <li class="text-danger" th:each="err : ${#fields.errors('photo')}" th:text="${err}"></li>
+				  	</ul>
+				  </div>
+				  
 				  <div class="mb-3">
 				    <label for="photo" class="form-label">Url immagine</label>
-				    <input type="text" class="form-control" id="photo" name="photo"  placeholder="Inserisci l'url di un immagine">
+				    <input type="text" class="form-control" id="photo" name="photo" th:field="*{photo}"  placeholder="Inserisci l'url di un immagine">
 				  </div>
 				  
 				</div>
 				
 				<div class="col wrapper-form-right p-3">
+
+				  <div th:if="${#fields.hasErrors('description')}">
+				  	<ul>
+				  	   <li class="text-danger" th:each="err : ${#fields.errors('description')}" th:text="${err}"></li>
+				  	</ul>
+				  </div>
 									
 				  <div class="mb-3">
 				    <label for="description" class="form-label">Descrizione della pizza</label>
-				    <textarea class="form-control" id="description" name="description" maxlength="255" placeholder="Inserisci una descrizione"></textarea>
+				    <textarea class="form-control" id="description" name="description" th:field="*{description}" maxlength="255" placeholder="Inserisci una descrizione"></textarea>
 				  </div>
 				  
 				</div>

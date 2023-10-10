@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PizzaRepo extends JpaRepository<Pizza, Integer> {
-	
+
 	public List<Pizza> findByNameContaining(String string);
 
 }

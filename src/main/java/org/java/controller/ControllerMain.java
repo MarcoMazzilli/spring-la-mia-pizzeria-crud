@@ -7,66 +7,77 @@ import org.java.db.service.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import jakarta.validation.Valid;
+
 
 @Controller
 public class ControllerMain {
-	
+
 	@Autowired
 	private PizzaService pizzaService;
-	
+
 	@GetMapping("/")
 	public String getIndex(
 			Model model,
 			@RequestParam(required = false) String pizzaName
 			) {
-		
-		
+
+
 		List<Pizza> arrayPizze = pizzaName == null
 				? pizzaService.findAll()
 				: pizzaService.findByName(pizzaName);
-		
-		
+
+
 		int countPizze = arrayPizze.size();
-		
-		
+
+
 		model.addAttribute("arrayPizze", arrayPizze);
 		model.addAttribute("countPizze", countPizze);
-		
+
 		return "index";
 	}
-	
+
 	@GetMapping("/pizza/{id}")
 	public String show(@PathVariable int id,Model model) {
-		
+
 		Pizza pizza = pizzaService.findById(id);
 		model.addAttribute("pizza", pizza);
-		
+
 		return "pizza/show";
 	}
-	
+
 	@GetMapping("pizza/create")
 	public String create(Model model) {
-		 
+
 		model.addAttribute("newPizza" , new Pizza());
-		
+
 		return "pizza/create";
 	}
-	
-	
+
+
 	@PostMapping("pizza/create")
 	public String store(
-			@ModelAttribute ("newPizza") Pizza pizza,
+			@Valid @ModelAttribute ("newPizza") Pizza pizza,
+			BindingResult bindingResult,
 			Model model){
 		
-		pizzaService.save(pizza);
+		if(bindingResult.hasErrors()) {
+			return "pizza/create";
+			}
+		try {
+			pizzaService.save(pizza);			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		System.out.println("New Pizza saved on db");
-		
+
 		return "redirect:/";
 	}
 
