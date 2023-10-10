@@ -28,15 +28,16 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner {
 
 
 		List<Pizza> arrayPizze = Arrays.asList(
-				new Pizza("margherita", "La regina delle pizze", imgPizza, 5.50f),
-				new Pizza("diavola", "La piccantissima", imgPizza, 6.50f),
-				new Pizza("ananas", "L'insulto gravissimo", imgPizza, 0.50f),
-				new Pizza("funghi e prosciutto", "La regina delle pizze", imgPizza, 5.50f),
-				new Pizza("vegetariana", "La piccantissima", imgPizza, 6.50f),
-				new Pizza("capricciosa ", "L'insulto gravissimo", imgPizza, 0.50f),
-				new Pizza("napoletana", "La regina delle pizze", imgPizza, 5.50f),
-				new Pizza("senza lattosio", "La piccantissima", imgPizza, 6.50f),
-				new Pizza("gourmet", "L'insulto gravissimo", imgPizza, 0.50f)
+				new Pizza("margherita", "La regina delle pizze", imgPizza, 5.50),
+				new Pizza("diavola", "La piccantissima", imgPizza, 6.50),
+				new Pizza("ananas", "L'insulto gravissimo", imgPizza, 0.50),
+				new Pizza("ananas", "L'insulto gravissimo", imgPizza, 0.50),
+				new Pizza("funghi e prosciutto", "La regina delle pizze", imgPizza, 5.50),
+				new Pizza("vegetariana", "La piccantissima", imgPizza, 6.50),
+				new Pizza("capricciosa ", "L'insulto gravissimo", imgPizza, 0.50),
+				new Pizza("napoletana", "La regina delle pizze", imgPizza, 5.50),
+				new Pizza("senza lattosio", "La piccantissima", imgPizza, 6.50),
+				new Pizza("gourmet", "L'insulto gravissimo", imgPizza, 0.50)
 				);
 
 		arrayPizze.forEach(p -> pizzaService.save(p));

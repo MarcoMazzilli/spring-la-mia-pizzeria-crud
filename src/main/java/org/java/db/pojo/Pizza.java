@@ -7,8 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Pizza {
@@ -38,12 +39,13 @@ public class Pizza {
 	private String photo;
 
 	@Column(nullable = false)
-	@NotNull(message = "Il prezzo e un campo obbligatiorio")
-	private float price;
+	@DecimalMin(value = "0.5" , message = "price too low")
+	@DecimalMax(value ="100.0", message = "Price too high")
+	private double price;
 
 	
 	public Pizza() {}
-	public Pizza(String name, String description, String photo, float price) throws Exception {
+	public Pizza(String name, String description, String photo, double price) throws Exception {
 
 		setName(name);
 		setDescription(description);
@@ -77,7 +79,7 @@ public class Pizza {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	public float getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	public String getFormattedPrice() {
@@ -85,10 +87,10 @@ public class Pizza {
 		String formattedPrice = String.format("%.2f", price);
 		return formattedPrice;
 	}
-	public void setPrice(float price) throws Exception {
-		if (price < 0.5f) {
-			throw new Exception("price must be above 0.5");
-		}
+	public void setPrice(double price) throws Exception {
+//		if (price < 0.5) {
+//			throw new Exception("price must be above 0.5");
+//		}
 		this.price = price;
 	}
 

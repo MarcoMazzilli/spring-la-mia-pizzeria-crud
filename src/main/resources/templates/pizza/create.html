@@ -11,12 +11,6 @@
 		method="post">
 			<row class="d-flex">				
 				<div class="col col-5 wrapper-from-left p-3">
-					<ul>
-						<li
-						th:each="err : ${#fields.allErrors()}"
-						th:text="${err}">
-						</li>
-					</ul>
 				  		
 				  <div th:if="${#fields.hasErrors('name')}">
 				  	<ul>
@@ -30,11 +24,15 @@
 				  </div>
 				  
 				  
-
+				  <div th:if="${#fields.hasErrors('price')}">
+				  	<ul>
+				  	   <li class="text-danger" th:each="err : ${#fields.errors('price')}" th:text="${err}"></li>
+				  	</ul>
+				  </div>
 				  
 				  <div class="mb-3">
 				    <label for="price" class="form-label">Prezzo</label>
-				    <input type="number" value="0.5" min="0.5" max="99" step=".5" class="form-control" id="price" name="price" placeholder="Es. 5.50">
+				    <input type="number"  max="99" step=".5" class="form-control" id="price" name="price" th:field="*{price}">
 				  </div>
 				  
 				  <div th:if="${#fields.hasErrors('photo')}">
