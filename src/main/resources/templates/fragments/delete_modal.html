@@ -12,12 +12,12 @@
 <button type="button" 
  class="btn btn-danger" 
  data-bs-toggle="modal" 
- th:data-bs-target="'#' + ${obj.getExplodedName()}">
+ th:data-bs-target="'#modal' + ${obj.id}">
  Delete [[${id}]]
  </button>
 <div
 	 class="modal fade"
-	 th:id="${obj.getExplodedName()}"
+	 th:id="'modal' + ${obj.id}"
 	 tabindex="-1" 
 	 aria-labelledby="exampleModalLabel" 
 	 aria-hidden="true">
