@@ -64,6 +64,10 @@ public class Pizza {
 	public String getName() {
 		return name;
 	}
+	public String getExplodedName() {
+		String expName = name.replace(" ", "");
+		return expName;
+	}
 	public void setName(String name) {
 		this.name = name;
 	}

@@ -40,13 +40,19 @@
 	      <td>[[*{description}]]</td>
 	      <td>€ [[*{getFormattedPrice}]]</td>
 	      <td>
-			  <a class="btn btn-success" th:href="@{pizza/{id}(id=${pizza.id})}">show</a>
-			  <a class="btn btn-primary" th:href="@{pizza/update/{id}(id=*{id})}">edit</a>
-			  <a class="btn btn-danger" href="#">delete</a>
-			  </td>
+			  <a class="btn btn-success" th:href="@{pizza/{id}(id=${pizza.id})}">Show</a>
+			  <a class="btn btn-primary" th:href="@{pizza/update/{id}(id=*{id})}">Edit</a>
+			  <div style="display: inline;" th:include="~{fragments/delete_modal :: deleteModal(${pizza},${pizza.id})}"></div>
+		  </td>
+
 	    </tr>
 	  </tbody>
 	</table>
+
+
+
+
+
 	
 	</div>
 	<!-- Bootstrap Bundle with Popper -->

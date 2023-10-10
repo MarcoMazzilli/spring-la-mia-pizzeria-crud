@@ -113,5 +113,14 @@ public class ControllerMain {
 		return "redirect:/";
 		
 	}
+	
+	@PostMapping("pizza/delete/{id}")
+	public String delete(@PathVariable int id) {
+		
+		Pizza pizzaToDelete = pizzaService.findById(id);
+		pizzaService.deletePizza(pizzaToDelete);
+		
+		return "redirect:/";
+	}
 
 }
