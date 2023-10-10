@@ -5,6 +5,9 @@
 	
 	<header th:replace="~{fragments/fragHeader :: header}"></header>
 	<div class="container">
+		
+	<h1 th:if="${newPizza.id < 1}">Crea una pizza</h1>
+	<h1 th:if="${newPizza.id > 0}">Modifica la pizza '[[${newPizza.name}]]'</h1>
 			
 		<form
 		th:object="${newPizza}" 

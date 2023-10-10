@@ -29,7 +29,7 @@
 	      <th scope="col">name</th>
 	      <th scope="col">description</th>
 	      <th scope="col">price</th>
-	      <th scope="col">Cta</th>
+	      <th scope="col"></th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -39,7 +39,11 @@
 	      <td>[[*{name}]]</td>
 	      <td>[[*{description}]]</td>
 	      <td>€ [[*{getFormattedPrice}]]</td>
-	      <td><a class="btn btn-success" th:href="@{pizza/{id}(id=${pizza.id})}">show</a></td>
+	      <td>
+			  <a class="btn btn-success" th:href="@{pizza/{id}(id=${pizza.id})}">show</a>
+			  <a class="btn btn-primary" th:href="@{pizza/update/{id}(id=*{id})}">edit</a>
+			  <a class="btn btn-danger" href="#">delete</a>
+			  </td>
 	    </tr>
 	  </tbody>
 	</table>

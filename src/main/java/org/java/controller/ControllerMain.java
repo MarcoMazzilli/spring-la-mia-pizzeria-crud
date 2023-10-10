@@ -71,6 +71,7 @@ public class ControllerMain {
 		if(bindingResult.hasErrors()) {
 			return "pizza/create";
 			}
+		
 		try {
 			pizzaService.save(pizza);			
 		} catch (Exception e) {
@@ -79,6 +80,38 @@ public class ControllerMain {
 		System.out.println("New Pizza saved on db");
 
 		return "redirect:/";
+	}
+	
+	@GetMapping("pizza/update/{id}")
+	public String getUpdate(
+			@PathVariable int id,
+			Model model) {
+		
+		Pizza pizza = pizzaService.findById(id);
+		model.addAttribute("newPizza", pizza);
+		
+		return "pizza/create";
+	}
+	
+	@PostMapping("pizza/update/{id}")
+	public String update(
+			@Valid @ModelAttribute ("newPizza") Pizza pizza,
+			BindingResult bindingResult,
+			Model model) {
+		
+		if(bindingResult.hasErrors()) {
+			return "pizza/create";
+			}
+		
+		try {
+			pizzaService.save(pizza);			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		System.out.println("New Pizza saved on db");
+	   
+		return "redirect:/";
+		
 	}
 
 }
